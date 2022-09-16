@@ -1,6 +1,8 @@
 # <img src="logos/xwpfmapper-logo.png" data-canonical-src="logos/xwpfmapper-logo.png" height="23"/> NPOI.XWPFMapper
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/Zt-freak/NPOI.XWPFMapper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Zt-freak/NPOI.XWPFMapper/actions/workflows/dotnet.yml)
+[![NuGet Badge](https://buildstats.info/nuget/Apodemus.NPOI.XWPFMapper)](https://www.nuget.org/packages/Apodemus.NPOI.XWPFMapper)
 
 This is a library for mapping objects to Word document tables with the [NPOI](https://github.com/nissl-lab/npoi) library.
 
