@@ -4,6 +4,8 @@
 
 This is a library for mapping objects to Word document tables with the [NPOI](https://github.com/nissl-lab/npoi) library.
 
+![logo](logos/xwpfmapper-logo.png)
+
 ## Usage
 
 > You can take a look at the `NPOI.XWPFMapper.ConsoleApp` project for a working example.
