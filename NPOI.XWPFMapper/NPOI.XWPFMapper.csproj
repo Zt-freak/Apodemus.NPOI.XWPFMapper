@@ -20,7 +20,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>- Switched the rows and columns because that would make more sense</PackageReleaseNotes>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <Version>$(VersionPrefix)</Version>
+    <Version>2.0.0</Version>
     <Product>Apodemus.$(AssemblyName)</Product>
   </PropertyGroup>
 

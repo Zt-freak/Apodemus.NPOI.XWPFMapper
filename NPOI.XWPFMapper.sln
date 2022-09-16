@@ -22,6 +22,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logos", "logos", "{178EEE88
 		logos\xwpfmapper-logo.png = logos\xwpfmapper-logo.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{75B7208B-37FB-4C94-AD9D-6D8F153BDE27}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{64C7D8D6-F56F-4781-B9C5-EBF53824F73B} = {055A1350-9122-4FA6-9BA4-2D88CE8E0E4E}
 		{178EEE88-6754-480D-927C-B9C8C7BCC9FB} = {055A1350-9122-4FA6-9BA4-2D88CE8E0E4E}
+		{75B7208B-37FB-4C94-AD9D-6D8F153BDE27} = {64C7D8D6-F56F-4781-B9C5-EBF53824F73B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEE7ECFE-43A7-42F7-99FF-0F420230A70A}
