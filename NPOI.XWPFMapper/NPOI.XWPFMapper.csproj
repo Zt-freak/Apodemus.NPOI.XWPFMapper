@@ -5,7 +5,7 @@
     <ApplicationIcon>xwpfmapper-logo.ico</ApplicationIcon>
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>NPOI.XWPFMapper</Title>
+    <Title>Apodemus.$(AssemblyName)</Title>
     <PackageIcon>xwpfmapper-logo.png</PackageIcon>
     <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Zt-freak/NPOI.XWPFMapper</RepositoryUrl>
@@ -21,6 +21,7 @@
     <PackageReleaseNotes>- Switched the rows and columns because that would make more sense</PackageReleaseNotes>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <Version>$(VersionPrefix)</Version>
+    <Product>Apodemus.$(AssemblyName)</Product>
   </PropertyGroup>
 
   <ItemGroup>
