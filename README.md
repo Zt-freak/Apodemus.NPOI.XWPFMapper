@@ -62,3 +62,18 @@ XWPFTableWrapper<ExampleClass> wrapper = new XWPFTableWrapper<ExampleClass>(docu
 wrapper.Insert(exampleData);
 
 ```
+
+The table alignment refers to how the individual member values are inserted and not to how new records are added to the table.
+
+`XWPFTableAlignment.Row`
+
+| Color   | Red                       |
+|---------|---------------------------|
+| Name    | This is a test            |
+| Address | Van Nelleweg 1, Rotterdam |
+
+`XWPFTableAlignment.Column`
+
+| Color | Name           | Address                   |
+|-------|----------------|---------------------------|
+| Red   | This is a test | Van Nelleweg 1, Rotterdam |
