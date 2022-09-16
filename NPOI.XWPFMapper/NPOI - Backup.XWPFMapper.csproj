@@ -16,7 +16,7 @@
     <PackageTags>NPOI;word;docx;mapping;dynamic</PackageTags>
     <PackageId>Apodemus.$(AssemblyName)</PackageId>
     <Authors>Zt-freak</Authors>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>Apache-2.0 license</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
