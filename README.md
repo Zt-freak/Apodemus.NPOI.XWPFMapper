@@ -1,4 +1,6 @@
-﻿# NPOI.XWPFMapper
+# NPOI.XWPFMapper
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This is a library for mapping objects to Word document tables with the [NPOI](https://github.com/nissl-lab/npoi) library.
 
