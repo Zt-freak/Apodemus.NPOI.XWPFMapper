@@ -78,4 +78,6 @@ The table alignment refers to how the individual member values are inserted and 
 |-------|----------------|---------------------------|
 | Red   | This is a test | Van Nelleweg 1, Rotterdam |
 
+`XWPFTableWrapper`'s `XWPFTable` is public, so you can access it from `XWPFTableWrapper`.
+
 ## 🏳️‍⚧️ Trans Rights are human rights!
