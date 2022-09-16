@@ -1,10 +1,5 @@
-﻿using NPOI.OpenXmlFormats.Wordprocessing;
-using NPOI.SS.Formula.Functions;
-using NPOI.XWPF.UserModel;
-using NPOI.XWPFMapper.Attributes;
-using NPOI.XWPFMapper.Managers;
-using System.Linq;
-using System.Reflection;
+﻿using NPOI.XWPF.UserModel;
+using NPOI.XWPFMapper.Enums;
 using System;
 
 namespace NPOI.XWPFMapper.Interfaces
@@ -12,7 +7,8 @@ namespace NPOI.XWPFMapper.Interfaces
     public interface IXWPFTableWrapper<T> where T : IXWPFMappable
     {
         Type ObjectType { get; }
+        XWPFTableAlignment XWPFTableAlignment  { get; }
         XWPFTable Table { get; }
-        void AddRow(IXWPFMappable mappableObject);
+        void Insert(IXWPFMappable mappableObject);
     }
 }

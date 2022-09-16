@@ -1,6 +1,7 @@
 ﻿using NPOI.OpenXmlFormats.Wordprocessing;
 using NPOI.XWPF.UserModel;
 using NPOI.XWPFMapper.Attributes;
+using NPOI.XWPFMapper.Enums;
 using NPOI.XWPFMapper.Interfaces;
 using System;
 using System.Linq;
@@ -12,80 +13,94 @@ namespace NPOI.XWPFMapper.Managers
     {
         public Type ObjectType { get; } = typeof(T);
         private readonly PropertyInfo[] _objectProperties = typeof(T).GetProperties();
+        public XWPFTableAlignment XWPFTableAlignment { get; }
         public XWPFTable Table { get; }
 
-        public XWPFTableWrapper(XWPFDocument document)
+        public XWPFTableWrapper(XWPFDocument document, XWPFTableAlignment alignment = XWPFTableAlignment.Row)
         {
-            try
-            {
-                Table = document.CreateTable();
+            XWPFTableAlignment = alignment;
+            Table = document.CreateTable();
 
-                Map();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Map();
         }
 
-        public XWPFTableWrapper(XWPFTableCell tableCell)
+        public XWPFTableWrapper(XWPFTableCell tableCell, XWPFTableAlignment alignment = XWPFTableAlignment.Row)
         {
-            try
-            {
-                CT_Tbl ctTbl = tableCell.GetCTTc().AddNewTbl();
-                tableCell.GetCTTc().AddNewP();
+            XWPFTableAlignment = alignment;
+            CT_Tbl ctTbl = tableCell.GetCTTc().AddNewTbl();
+            tableCell.GetCTTc().AddNewP();
 
-                Table = new XWPFTable(ctTbl, tableCell);
+            Table = new XWPFTable(ctTbl, tableCell);
 
-                Map();
-                tableCell.RemoveParagraph(0);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Map();
+            tableCell.RemoveParagraph(0);
         }
 
         private void Map(PropertyInfo[] properties = null)
         {
-            try
-            {
-                if (properties is null)
-                    properties = _objectProperties;
+            if (properties is null)
+                properties = _objectProperties;
 
-                bool firstCycle = true;
-                foreach (PropertyInfo propertyInfo in properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
-                {
-                    XWPFPropertyAttribute attr = (XWPFPropertyAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(XWPFPropertyAttribute));
-                    if (firstCycle)
-                        firstCycle = false;
-                    else
-                    {
-                        XWPFTableRow newRow = new XWPFTableRow(new CT_Row(), Table);
-                        newRow.AddNewTableCell();
-                        Table.AddRow(newRow);
-                    }
-                    Table.GetRow(Table.Rows.Count - 1).GetCell(0).SetText(attr.XWPFName);
-                }
-            }
-            catch (Exception)
+            switch (XWPFTableAlignment)
             {
-                throw;
+                case XWPFTableAlignment.Column:
+                    MapColumns(properties);
+                    break;
+                case XWPFTableAlignment.Row:
+                default:
+                    MapRows(properties);
+                    break;
             }
         }
 
-        public void AddRow(IXWPFMappable mappableObject)
+        private void MapRows(PropertyInfo[] properties)
         {
-            try
+            bool firstCycle = true;
+            foreach (PropertyInfo propertyInfo in properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
             {
-                if (mappableObject != null && mappableObject.GetType() != typeof(T))
-                    throw new ArgumentException("mappableObject types do not match");
-
-                InsertRowValue(mappableObject);
+                XWPFPropertyAttribute attr = (XWPFPropertyAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(XWPFPropertyAttribute));
+                if (firstCycle)
+                    firstCycle = false;
+                else
+                {
+                    XWPFTableRow newRow = new XWPFTableRow(new CT_Row(), Table);
+                    newRow.AddNewTableCell();
+                    Table.AddRow(newRow);
+                }
+                Table.GetRow(Table.Rows.Count - 1).GetCell(0).SetText(attr.XWPFName);
             }
-            catch (Exception)
+        }
+
+        private void MapColumns(PropertyInfo[] properties)
+        {
+            bool firstCycle = true;
+            foreach (PropertyInfo propertyInfo in properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
             {
-                throw;
+                XWPFPropertyAttribute attr = (XWPFPropertyAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(XWPFPropertyAttribute));
+                if (firstCycle)
+                    firstCycle = false;
+                else
+                {
+                    Table.Rows[0].CreateCell();
+                }
+                Table.Rows[0].GetTableCells().Last().SetText(attr.XWPFName);
+            }
+        }
+
+        public void Insert(IXWPFMappable mappableObject)
+        {
+            if (mappableObject != null && mappableObject.GetType() != typeof(T))
+                throw new ArgumentException("mappableObject types do not match");
+
+            switch (XWPFTableAlignment)
+            {
+                case XWPFTableAlignment.Column:
+                    InsertColumnValue(mappableObject);
+                    break;
+                case XWPFTableAlignment.Row:
+                default:
+                    InsertRowValue(mappableObject);
+                    break;
             }
         }
 
@@ -107,14 +122,51 @@ namespace NPOI.XWPFMapper.Managers
                             continue;
 
                         Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
-                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell });
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, XWPFTableAlignment.Row });
 
-                        MethodInfo addRowMethod = ((object)newTableWrapper).GetType().GetMethod("AddRow");
+                        MethodInfo addRowMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
                         addRowMethod.Invoke(newTableWrapper, new object[] { value });
                     }
                     else
                     {
                         Table.GetRow(index).CreateCell().SetText(propertyInfo.GetValue(mappableObject)?.ToString());
+                    }
+                    index++;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void InsertColumnValue(IXWPFMappable mappableObject)
+        {
+            try
+            {
+                int index = 0;
+                Table.AddRow(new XWPFTableRow(new CT_Row(), Table));
+                foreach (PropertyInfo propertyInfo in _objectProperties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
+                {
+                    CustomAttributeData attr = propertyInfo.CustomAttributes.First(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)));
+                    if (typeof(IXWPFMappable).IsAssignableFrom(propertyInfo.PropertyType))
+                    {
+                        XWPFTableCell newCell = Table.Rows.Last().CreateCell();
+
+                        var value = (IXWPFMappable)Convert.ChangeType(propertyInfo.GetValue(mappableObject), propertyInfo.PropertyType);
+
+                        if (value == null)
+                            continue;
+
+                        Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, XWPFTableAlignment.Column });
+
+                        MethodInfo addColumnMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
+                        addColumnMethod.Invoke(newTableWrapper, new object[] { value });
+                    }
+                    else
+                    {
+                        Table.Rows.Last().CreateCell().SetText(propertyInfo.GetValue(mappableObject)?.ToString());
                     }
                     index++;
                 }

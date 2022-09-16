@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32825.248
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI.XWPFMapper", "NPOI.XWPFMapper\NPOI.XWPFMapper.csproj", "{897164C4-34A0-4320-85F1-F48C02BA765C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.XWPFMapper", "NPOI.XWPFMapper\NPOI.XWPFMapper.csproj", "{897164C4-34A0-4320-85F1-F48C02BA765C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI.XWPFMapper.ConsoleApp", "NPOI.XWPFMapper.ConsoleApp\NPOI.XWPFMapper.ConsoleApp.csproj", "{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
