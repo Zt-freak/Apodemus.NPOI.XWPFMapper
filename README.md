@@ -1,4 +1,4 @@
-# NPOI.XWPFMapper
+﻿# NPOI.XWPFMapper
 
 This is a library for mapping objects to Word document tables with the [NPOI](https://github.com/nissl-lab/npoi) library.
 
@@ -49,7 +49,7 @@ ExampleClass exampleData = new ExampleClass()
     IgnoredMember = "This member will be ignored",
     Address = new ExampleChildClass()
     {
-        Address = "Burgemeester Sch�nfeldplein",
+        Address = "Burgemeester Schönfeldplein",
         City = "Winschoten",
         CountryCode = "NL"
     }
@@ -77,3 +77,5 @@ The table alignment refers to how the individual member values are inserted and 
 | Color | Name           | Address                   |
 |-------|----------------|---------------------------|
 | Red   | This is a test | Van Nelleweg 1, Rotterdam |
+
+## 🏳️‍⚧️ Trans Rights are human rights!
