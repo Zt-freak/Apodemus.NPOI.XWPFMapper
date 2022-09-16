@@ -53,7 +53,7 @@ namespace NPOI.XWPFMapper.Managers
             }
         }
 
-        private void MapRows(PropertyInfo[] properties)
+        private void MapColumns(PropertyInfo[] properties)
         {
             bool firstCycle = true;
             foreach (PropertyInfo propertyInfo in properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
@@ -71,7 +71,7 @@ namespace NPOI.XWPFMapper.Managers
             }
         }
 
-        private void MapColumns(PropertyInfo[] properties)
+        private void MapRows(PropertyInfo[] properties)
         {
             bool firstCycle = true;
             foreach (PropertyInfo propertyInfo in properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
@@ -104,7 +104,7 @@ namespace NPOI.XWPFMapper.Managers
             }
         }
 
-        private void InsertRowValue(IXWPFMappable mappableObject)
+        private void InsertColumnValue(IXWPFMappable mappableObject)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace NPOI.XWPFMapper.Managers
             }
         }
 
-        private void InsertColumnValue(IXWPFMappable mappableObject)
+        private void InsertRowValue(IXWPFMappable mappableObject)
         {
             try
             {
