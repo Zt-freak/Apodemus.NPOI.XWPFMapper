@@ -8,10 +8,10 @@
     <Title>Apodemus.$(AssemblyName)</Title>
     <PackageIcon>xwpfmapper-logo.png</PackageIcon>
     <PackageReadmeFile>NUGET_README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Zt-freak/NPOI.XWPFMapper</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Zt-freak/Apodemus.NPOI.XWPFMapper</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Copyright>Apache-2.0 license</Copyright>
-    <PackageProjectUrl>https://github.com/Zt-freak/NPOI.XWPFMapper</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Zt-freak/Apodemus.NPOI.XWPFMapper</PackageProjectUrl>
     <Description>A library for mapping objects to Word document tables with the NPOI library.</Description>
     <PackageTags>NPOI;word;docx;mapping;dynamic</PackageTags>
     <PackageId>Apodemus.$(AssemblyName)</PackageId>
