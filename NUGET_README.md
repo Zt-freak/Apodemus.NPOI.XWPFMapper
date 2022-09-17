@@ -1,12 +1,14 @@
 ﻿# NPOI.XWPFMapper
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://github.com/Zt-freak/NPOI.XWPFMapper/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Zt-freak/NPOI.XWPFMapper/actions/workflows/dotnet.yml)
+[![NuGet Badge](https://buildstats.info/nuget/Apodemus.NPOI.XWPFMapper)](https://www.nuget.org/packages/Apodemus.NPOI.XWPFMapper)
 
 This is a library for mapping objects to Word document tables with the [NPOI](https://github.com/nissl-lab/npoi) library.
 
 ## Usage
 
-> You can take a look at the [https://github.com/Zt-freak/NPOI.XWPFMapper.Example](`NPOI.XWPFMapper.ConsoleApp`) project for a working example.
+> You can take a look at the [`NPOI.XWPFMapper.ConsoleApp`](https://github.com/Zt-freak/NPOI.XWPFMapper.Example) project for a working example.
 
 `NPOI.XWPFMapper` uses the interface `IXWPFMappable` and the attribute `XWPFPropertyAttribute` to define which classes should be mappable and which members should be nested or just strings.
 
