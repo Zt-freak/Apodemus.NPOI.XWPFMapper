@@ -8,7 +8,7 @@ This is a library for mapping objects to Word document tables with the [NPOI](ht
 
 ## Usage
 
-> You can take a look at the [`NPOI.XWPFMapper.ConsoleApp`](https://github.com/Zt-freak/NPOI.XWPFMapper.Example) project for a working example.
+> You can take a look at the [`NPOI.XWPFMapper.Example`](https://github.com/Zt-freak/NPOI.XWPFMapper.Example) project for a working example.
 
 `NPOI.XWPFMapper` uses the interface `IXWPFMappable` and the attribute `XWPFPropertyAttribute` to define which classes should be mappable and which members should be nested or just strings.
 
