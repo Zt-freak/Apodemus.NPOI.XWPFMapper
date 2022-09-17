@@ -111,7 +111,7 @@ namespace NPOI.XWPFMapper.Managers
                 int index = 0;
                 foreach (PropertyInfo propertyInfo in _objectProperties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
                 {
-                    CustomAttributeData attr = propertyInfo.CustomAttributes.First(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)));
+                    XWPFPropertyAttribute attr = (XWPFPropertyAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(XWPFPropertyAttribute));
                     if (typeof(IXWPFMappable).IsAssignableFrom(propertyInfo.PropertyType))
                     {
                         XWPFTableCell newCell = Table.GetRow(index).CreateCell();
@@ -122,7 +122,7 @@ namespace NPOI.XWPFMapper.Managers
                             continue;
 
                         Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
-                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, XWPFTableAlignment.Row });
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, attr.TableAlignment });
 
                         MethodInfo addRowMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
                         addRowMethod.Invoke(newTableWrapper, new object[] { value });
@@ -148,7 +148,7 @@ namespace NPOI.XWPFMapper.Managers
                 Table.AddRow(new XWPFTableRow(new CT_Row(), Table));
                 foreach (PropertyInfo propertyInfo in _objectProperties.Where(p => p.CustomAttributes.Any(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)))))
                 {
-                    CustomAttributeData attr = propertyInfo.CustomAttributes.First(a => a.AttributeType.Equals(typeof(XWPFPropertyAttribute)));
+                    XWPFPropertyAttribute attr = (XWPFPropertyAttribute)Attribute.GetCustomAttribute(propertyInfo, typeof(XWPFPropertyAttribute));
                     if (typeof(IXWPFMappable).IsAssignableFrom(propertyInfo.PropertyType))
                     {
                         XWPFTableCell newCell = Table.Rows.Last().CreateCell();
@@ -159,7 +159,7 @@ namespace NPOI.XWPFMapper.Managers
                             continue;
 
                         Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
-                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, XWPFTableAlignment.Column });
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, attr.TableAlignment });
 
                         MethodInfo addColumnMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
                         addColumnMethod.Invoke(newTableWrapper, new object[] { value });

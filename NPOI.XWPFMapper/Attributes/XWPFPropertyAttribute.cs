@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.XWPFMapper.Enums;
+using System;
 
 namespace NPOI.XWPFMapper.Attributes
 {
@@ -6,6 +7,12 @@ namespace NPOI.XWPFMapper.Attributes
     public class XWPFPropertyAttribute : Attribute
     {
         public string XWPFName;
+        public XWPFTableAlignment TableAlignment;
         public XWPFPropertyAttribute(string name) => XWPFName = name;
+        public XWPFPropertyAttribute(string name, XWPFTableAlignment alignment)
+        {
+            XWPFName = name;
+            TableAlignment = alignment;
+        }
     }
 }
