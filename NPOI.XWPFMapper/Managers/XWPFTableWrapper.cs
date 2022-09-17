@@ -121,8 +121,18 @@ namespace NPOI.XWPFMapper.Managers
                         if (value == null)
                             continue;
 
+                        XWPFTableAlignment alignment;
+                        if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment.Column;
+                        else if (attr.TableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = attr.TableAlignment;
+                        else if (XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment;
+                        else
+                            alignment = XWPFTableAlignment.Column;
+
                         Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
-                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, attr.TableAlignment });
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, alignment });
 
                         MethodInfo addRowMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
                         addRowMethod.Invoke(newTableWrapper, new object[] { value });
@@ -158,8 +168,18 @@ namespace NPOI.XWPFMapper.Managers
                         if (value == null)
                             continue;
 
+                        XWPFTableAlignment alignment;
+                        if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment.Column;
+                        else if (attr.TableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = attr.TableAlignment;
+                        else if (XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment;
+                        else
+                            alignment = XWPFTableAlignment.Row;
+
                         Type type = typeof(XWPFTableWrapper<>).MakeGenericType(propertyInfo.PropertyType);
-                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, attr.TableAlignment });
+                        dynamic newTableWrapper = Activator.CreateInstance(type, new object[] { newCell, alignment });
 
                         MethodInfo addColumnMethod = ((object)newTableWrapper).GetType().GetMethod("Insert");
                         addColumnMethod.Invoke(newTableWrapper, new object[] { value });

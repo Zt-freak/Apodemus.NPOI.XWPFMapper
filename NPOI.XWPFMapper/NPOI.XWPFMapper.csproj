@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+    <TargetFrameworks>net48;netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <ApplicationIcon>xwpfmapper-logo.ico</ApplicationIcon>
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -18,9 +18,10 @@
     <Authors>Zt-freak</Authors>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>- Added alignment customisation on child objects</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added more version support
+- Added more options for setting table alignment</PackageReleaseNotes>
     <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Product>Apodemus.$(AssemblyName)</Product>
   </PropertyGroup>
 
