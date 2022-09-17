@@ -23,7 +23,7 @@ internal class ExampleClass : IXWPFMappable // Implement the IXWPFMappable inter
     public string Name { get; set; }
 
     // This child class also implements IXWPFMappable and will become a nested table.
-    [XWPFProperty("Address")]
+    [XWPFProperty("Address", XWPFTableAlignment.Column)]
     public ExampleChildClass Address { get; set; }
 
     // Without the XWPFPropertyAttribute a member will be ignored by the mapping.
