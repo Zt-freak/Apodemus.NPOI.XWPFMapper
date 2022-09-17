@@ -18,7 +18,7 @@
     <Authors>Zt-freak</Authors>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>- Switched the rows and columns because that would make more sense</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added alignment customisation on child objects</PackageReleaseNotes>
     <AssemblyVersion>2.1.0.0</AssemblyVersion>
     <Version>2.1.0</Version>
     <Product>Apodemus.$(AssemblyName)</Product>
