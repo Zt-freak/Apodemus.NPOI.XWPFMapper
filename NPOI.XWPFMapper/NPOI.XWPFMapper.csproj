@@ -21,7 +21,7 @@
     <PackageReleaseNotes>- Added more version support
 - Added more options for setting table alignment</PackageReleaseNotes>
     <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <Version>2.2.0</Version>
+    <Version>2.2.1</Version>
     <Product>Apodemus.$(AssemblyName)</Product>
   </PropertyGroup>
 
