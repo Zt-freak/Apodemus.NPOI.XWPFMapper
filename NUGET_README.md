@@ -75,7 +75,7 @@ wrapper.Insert(exampleData);
 
 ### Table alignment
 
-Table alignment for nested tables can be set at different points, they are mprioritised in the followng order:
+Table alignment for nested tables can be set at different points, they are prioritised in the followng order:
 - at the `XWPFPropertyAttribute`
 - at `XWPFTableAlignment` of the nested object that implements `IXWPFMappable`
 - inherited from a parent's `XWPFTableAlignment`
