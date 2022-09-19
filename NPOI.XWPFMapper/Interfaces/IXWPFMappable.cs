@@ -4,6 +4,6 @@ namespace NPOI.XWPFMapper.Interfaces
 {
     public interface IXWPFMappable
     {
-        XWPFTableAlignment XWPFTableAlignment { get; }
+        XWPFTableAlignment XWPFTableAlignment { get; set; }
     }
 }
