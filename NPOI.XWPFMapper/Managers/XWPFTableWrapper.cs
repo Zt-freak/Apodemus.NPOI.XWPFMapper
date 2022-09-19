@@ -47,9 +47,10 @@ namespace NPOI.XWPFMapper.Managers
                     MapColumns(properties);
                     break;
                 case XWPFTableAlignment.Row:
-                default:
                     MapRows(properties);
                     break;
+                default:
+                    throw new ArgumentException("XWPFTableAlignment has an invalid value");
             }
         }
 
@@ -122,10 +123,10 @@ namespace NPOI.XWPFMapper.Managers
                             continue;
 
                         XWPFTableAlignment alignment;
-                        if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
-                            alignment = XWPFTableAlignment.Column;
-                        else if (attr.TableAlignment != XWPFTableAlignment.NotSet)
+                        if (attr.TableAlignment != XWPFTableAlignment.NotSet)
                             alignment = attr.TableAlignment;
+                        else if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment.Column;
                         else if (XWPFTableAlignment != XWPFTableAlignment.NotSet)
                             alignment = XWPFTableAlignment;
                         else
@@ -169,10 +170,10 @@ namespace NPOI.XWPFMapper.Managers
                             continue;
 
                         XWPFTableAlignment alignment;
-                        if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
-                            alignment = XWPFTableAlignment.Column;
-                        else if (attr.TableAlignment != XWPFTableAlignment.NotSet)
+                        if (attr.TableAlignment != XWPFTableAlignment.NotSet)
                             alignment = attr.TableAlignment;
+                        else if (value.XWPFTableAlignment != XWPFTableAlignment.NotSet)
+                            alignment = XWPFTableAlignment.Column;
                         else if (XWPFTableAlignment != XWPFTableAlignment.NotSet)
                             alignment = XWPFTableAlignment;
                         else

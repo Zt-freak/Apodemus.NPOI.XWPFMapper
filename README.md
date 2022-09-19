@@ -17,6 +17,8 @@ This is a library for mapping objects to Word document tables with the [NPOI](ht
 ```csharp
 internal class ExampleClass : IXWPFMappable // Implement the IXWPFMappable interface to make a class mappable
 {
+    public XWPFTableAlignment XWPFTableAlignment { get; set; }
+
     // Add the XWPFPropertyattribute to make a member mappable.
     [XWPFProperty("Color")] 
     public ExampleEnum Enum { get; set; }
@@ -34,6 +36,8 @@ internal class ExampleClass : IXWPFMappable // Implement the IXWPFMappable inter
 
 internal class ExampleChildClass : IXWPFMappable
 {
+    public XWPFTableAlignment XWPFTableAlignment { get; set; }
+
     [XWPFProperty("Street")]
     public string Address { get; set; }
     [XWPFProperty("Place")]
@@ -72,6 +76,11 @@ wrapper.Insert(exampleData);
 `XWPFTableWrapper`'s `XWPFTable` is public, so you can access it from `XWPFTableWrapper`.
 
 ### Table alignment
+
+Table alignment for nested tables can be set at different points, they are prioritised in the followng order:
+- at the `XWPFPropertyAttribute`
+- at `XWPFTableAlignment` of the nested object that implements `IXWPFMappable`
+- inherited from a parent's `XWPFTableAlignment`
 
 `XWPFTableAlignment.Row`
 

@@ -18,10 +18,9 @@
     <Authors>Zt-freak</Authors>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>- Added more version support
-- Added more options for setting table alignment</PackageReleaseNotes>
+    <PackageReleaseNotes>- Fixed a bug with table alignment assignment</PackageReleaseNotes>
     <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <Version>2.2.1</Version>
+    <Version>2.2.2</Version>
     <Product>Apodemus.$(AssemblyName)</Product>
   </PropertyGroup>
 
