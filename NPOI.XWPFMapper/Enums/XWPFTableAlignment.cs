@@ -2,6 +2,7 @@
 {
     public enum XWPFTableAlignment
     {
+        NotSet,
         Column,
         Row
     }

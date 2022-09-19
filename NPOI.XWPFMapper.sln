@@ -5,13 +5,12 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.XWPFMapper", "NPOI.XWPFMapper\NPOI.XWPFMapper.csproj", "{897164C4-34A0-4320-85F1-F48C02BA765C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.XWPFMapper.ConsoleApp", "NPOI.XWPFMapper.ConsoleApp\NPOI.XWPFMapper.ConsoleApp.csproj", "{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{055A1350-9122-4FA6-9BA4-2D88CE8E0E4E}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		LICENSE = LICENSE
+		NUGET_README.md = NUGET_README.md
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -21,6 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logos", "logos", "{178EEE88
 	ProjectSection(SolutionItems) = preProject
 		logos\xwpfmapper-logo.ico = logos\xwpfmapper-logo.ico
 		logos\xwpfmapper-logo.png = logos\xwpfmapper-logo.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{75B7208B-37FB-4C94-AD9D-6D8F153BDE27}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
 Global
@@ -33,10 +38,6 @@ Global
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{897164C4-34A0-4320-85F1-F48C02BA765C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A34DFFB6-E5B0-4EE4-8F8E-E1BA97AD1E2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +45,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{64C7D8D6-F56F-4781-B9C5-EBF53824F73B} = {055A1350-9122-4FA6-9BA4-2D88CE8E0E4E}
 		{178EEE88-6754-480D-927C-B9C8C7BCC9FB} = {055A1350-9122-4FA6-9BA4-2D88CE8E0E4E}
+		{75B7208B-37FB-4C94-AD9D-6D8F153BDE27} = {64C7D8D6-F56F-4781-B9C5-EBF53824F73B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEE7ECFE-43A7-42F7-99FF-0F420230A70A}
